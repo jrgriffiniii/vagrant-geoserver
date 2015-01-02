@@ -1,0 +1,4 @@
+vagrant-geoserver
+=================
+
+Vagrant GeoServer
