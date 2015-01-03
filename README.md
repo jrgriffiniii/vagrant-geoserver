@@ -1,4 +1,4 @@
-vagrant-geoserver
+Vagrant box for GeoServer
 =================
 
 Vagrant GeoServer

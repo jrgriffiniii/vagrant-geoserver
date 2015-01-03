@@ -13,6 +13,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "virtualbox/centos64"
   config.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20131103.box"
 
+  config.vm.hostname = "geo.localdomain"
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
@@ -25,7 +27,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
+  config.vm.network "private_network", ip: "192.168.1.127"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -73,6 +75,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   cf.policy_server_address = "10.0.2.15"
   # end
 
+  config.librarian_puppet.puppetfile_dir = "puppet"
+
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
   # You will need to create the manifests directory and a manifest in
@@ -80,8 +84,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
   config.vm.provision "puppet" do |puppet|
 
-     puppet.manifests_path = "manifests"
-     # puppet.manifest_file  = "site.pp"
+    puppet.manifests_path = "puppet/manifests"
+    puppet.module_path = "puppet/modules"
+    puppet.hiera_config_path = "puppet/hiera.yaml"
   end
 
   # Enable provisioning with chef solo, specifying a cookbooks path, roles

@@ -1,0 +1,9 @@
+forge "http://forge.puppetlabs.com"
+
+mod 'puppetlabs/firewall'
+mod 'stahnma/epel'
+mod 'puppetlabs/java'
+mod 'puppetlabs/tomcat'
+mod 'puppetlabs/postgresql'
+mod 'camptocamp/postgis'
+mod 'puppetlabs/apache'
