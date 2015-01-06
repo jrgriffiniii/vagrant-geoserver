@@ -4,11 +4,11 @@
 #
 class profile::tomcat {
 
+  class { 'epel': } ->
   class { '::tomcat':
     
     install_from_source => false,
-  }
-  class { 'epel': }->
+  } ->
   tomcat::instance { 'default':
     
     package_name  => 'tomcat',

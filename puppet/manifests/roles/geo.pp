@@ -8,5 +8,5 @@ class role::geo {
   include profile::java
   include profile::tomcat
   include profile::geoserver
-  include profile::postgis
+#  include profile::postgis
 }
